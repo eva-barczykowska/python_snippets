@@ -23,6 +23,7 @@ print(my_account.name)  # data, have to print it to get the value
 print(my_account.account_balance)  # data, have to print it to get the value
 
 my_account.deposit(100000)  # method, don't need to use print
+my_account.withdraw(50000)  # method, don't need to use print'
 
 """
 Explanation
@@ -48,3 +49,4 @@ the __init__ method is executed, displaying the message: "Account created for Ew
 In summary, the __init__ method in the BankAccount class is responsible for initializing the instance variables
 and performing any necessary actions when a new instance of the class is created.
 It is a crucial part of object-oriented programming in Python.
+"""
