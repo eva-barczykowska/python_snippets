@@ -23,7 +23,7 @@ print(my_account.name)  # data, have to print it to get the value
 print(my_account.account_balance)  # data, have to print it to get the value
 
 my_account.deposit(100000)  # method, don't need to use print
-my_account.withdraw(50000)  # method, don't need to use print'
+my_account.withdraw(50000)  # method, don't need to use print
 
 """
 Explanation
@@ -31,7 +31,8 @@ The selected code within the BankAccount class is the __init__ method, also know
 This method is automatically called when an instance of the class is created.
 
 In the __init__ method, the self parameter is a reference to the current instance of the class.
-It is used to access variables and methods that belong to the class. In this case, self.name and self.account_balance are instance variables that store the name and account balance of the bank account, respectively.
+It is used to access variables and methods that belong to the class. In this case, self.name and self.account_balance
+are instance variables that store the name and account balance of the bank account, respectively.
 
 The __init__ method also takes two parameters: name and account_balance. The name parameter is a string representing
 the name of the bank account holder, and the account_balance parameter is an integer representing the initial balance
