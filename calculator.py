@@ -30,10 +30,9 @@ while operation not in valid_operations:
       4)divide
     """)
 
-operations = {'1': 'addition', '2':'subtraction', '3':'multiplication', '4':'division'}
+operations = {'1': 'addition', '2': 'subtraction', '3': 'multiplication', '4': 'division'}
 if operation in operations:
     print(f"Selected operation: {operations[operation]}")
-
 
 # TODO: validate the input to ensure it's a valid operation number'
 # otherwise it operation returns none
@@ -44,14 +43,16 @@ number1 = float(number1)
 number2 = input("Please enter the second number:")
 number2 = float(number2)
 
+
 def get_result(operation, number1, number2):
     if operation == '1':
-        return(number1 + number2)
+        return number1 + number2
     elif operation == '2':
-        return(number1 - number2)
+        return number1 - number2
     elif operation == '3':
-        return(number1 * number2)
+        return number1 * number2
     elif operation == '4':
-        return(number1 / number2)
+        return number1 / number2
+
 
 print(get_result(operation, number1, number2))
