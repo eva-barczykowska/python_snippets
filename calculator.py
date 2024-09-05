@@ -90,8 +90,8 @@ print("Result is: ", get_result(operation, number1, number2))
 
 # In this updated code, a dictionary operations is defined with keys representing operation numbers
 # and values as lambda functions that perform the corresponding operations. The get method of the dictionary is used
-# to retrieve the appropriate function based on the operation parameter. If the operation is not found in the dictionary,
-# a default lambda function that returns "Invalid operation" is returned.
+# to retrieve the appropriate function based on the operation parameter. If the operation is not found in the
+# dictionary, a default lambda function that returns "Invalid operation" is returned.
 
 # The lambda functions in the dictionary are anonymous functions that perform the operations without the need for
 # explicit return statements. The parentheses at the end of the get method call invoke the retrieved function.
