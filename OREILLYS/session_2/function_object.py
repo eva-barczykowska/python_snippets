@@ -10,7 +10,7 @@
 
 # corrected code:
 number = input("Enter a number: ")
-if not number.isdigit():  # () missing!
+if not number.isdigit():  # () was missing!
     print("It is NOT a number!")
 else:
     print("It is a number!")
