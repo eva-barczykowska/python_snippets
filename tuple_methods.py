@@ -25,3 +25,21 @@ print(my_tuple[:])
 
 my_second_tuple = my_tuple[:]
 # my_second_tuple[1] = 'R'  # tuple is immutable, so this will raise an error
+
+# When tuples are nested, they behave similarly to lists
+my_tuple = (1, 2, ['z', 'b'])
+my_tuple[2][0] = 'a'
+
+print(my_tuple)  # Output: (1, 2, ['a', 'b'])   The inner list has been changed !!!
+
+ # only parentheses is not enough
+t1 = ("hello")
+print(type(t1))   # Output: <class 'str'>
+
+# need a comma at the end
+t2 = ("hello",)
+print(type(t2))  # Output: <class 'tuple'>
+
+# parentheses is optional
+t3 = "hello",
+print(type(t3))  # Output: <class 'tuple'>
