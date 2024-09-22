@@ -66,6 +66,13 @@ number2 = float(number2)
 
 
 def get_result(operation, number1, number2):
+    """
+    A function to perform the specified operation on two numbers.
+
+    Expects: two numbers and an operation number as input
+    Modifies: nothing.
+    Returns the result of the operation.
+    """
     if operation == '1':
         return number1 + number2
     elif operation == '2':
