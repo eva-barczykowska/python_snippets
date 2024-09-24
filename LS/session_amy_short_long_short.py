@@ -103,3 +103,9 @@ def short_long_short(str1, str2):
 print(short_long_short('abc', 'defgh') == "abcdefghabc")
 print(short_long_short('abcde', 'fgh') == "fghabcdefgh")
 print(short_long_short('', 'xyz') == "xyz")
+
+import math
+# math.prod(iterable, start)start
+lst = [1, 2, 3, 4, 5]
+two_last_elements_multiplied = math.prod(lst[-2:])
+print(two_last_elements_multiplied)
