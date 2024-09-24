@@ -43,3 +43,12 @@ print(type(t2))  # Output: <class 'tuple'>
 # parentheses is optional
 t3 = "hello",
 print(type(t3))  # Output: <class 'tuple'>
+
+# checking if an element exists in a tuple
+my_tuple = ('a', 'p', 'p', 'l', 'e')
+
+result = my_tuple.count('p')
+print(result)      # Output: 2
+
+result = my_tuple.index('p')
+print(result)      # Output: 1
