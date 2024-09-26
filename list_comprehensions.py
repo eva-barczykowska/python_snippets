@@ -81,3 +81,13 @@ fizzbuzz = [
 
 # The FizzBuzz list is now created and stored in fizzbuzz
 print(fizzbuzz)
+
+numbers = [2, 1, 3, 4, 7, 11, 18, 0]
+# ", ".join(str(n) for n in numbers)
+# sum(n**2 for n in numbers)
+# all(n > 0 for n in numbers)
+
+a = b = []
+a = a + [1, 2]
+print(a)  # Output: [1, 2]
+print(b)  # Output: []
