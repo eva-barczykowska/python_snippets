@@ -1,1 +1,10 @@
-.idea/workspace.xml
+
+
+# Ignore the entire .idea directory
+.idea/
+
+# Ignore virtual environment directory
+.venv/
+
+# Ignore specific files
+DS_Store
