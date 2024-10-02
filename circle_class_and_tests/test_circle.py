@@ -1,7 +1,7 @@
 import math
 import unittest
 
-from circle import Circle
+from circle_class_and_tests.circle import Circle
 
 
 class CircleTests(unittest.TestCase):
