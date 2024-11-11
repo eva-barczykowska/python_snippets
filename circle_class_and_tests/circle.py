@@ -1,6 +1,8 @@
 # The circle should have a radius, a diameter, and an area.
 # It should also have a nice string representation.
 import math
+
+
 class Circle:
     def __init__(self, radius=1):
         self.radius = radius
@@ -15,7 +17,7 @@ c = Circle(5)
 print("str representation:", c)
 #
 # print("radius", c.radius)
-print("area", c.area)#
+print("area:", c.area)  #
 #
 # print("diameter", c.diameter)
 # print("area", c.area)

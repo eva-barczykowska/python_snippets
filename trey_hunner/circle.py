@@ -1,11 +1,14 @@
 # Make a class that represents a circle.
 # The circle should have a radius, a diameter, and an area. It should also have a nice string representation.
 # https://www.pythonmorsels.com/exercises/ac9f7d60d95d493f9e354f18a3ea9d82/submit/2/
+
+# look at circle_class_and_test directory for to see how it was at the beginning of the exercise
 import math
 
 
 class Circle:
     """Circle with radius, area, and diameter."""
+
     def __init__(self, radius=1):
         self._radius = radius
 
@@ -30,17 +33,11 @@ class Circle:
     def radius(self):
         return self._radius
 
-
-
     @radius.setter
     def radius(self, radius):
         if radius < 0:
             raise ValueError("Radius cannot be negative")
         self._radius = radius
-
-
-
-
 
 
 # c = Circle(4)
