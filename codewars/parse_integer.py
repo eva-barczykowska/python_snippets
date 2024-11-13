@@ -1,8 +1,4 @@
-def get_age(age):
-    return int(age[0])
+def maps(a):
+    return [2 * x for x in a]
 
-
-print(get_age("2 years old"), 2)
-print(get_age("4 years old"), 4)
-print(get_age("5 years old"), 5)
-print(get_age("1 years old"), 1)
+print(maps([1, 2, 3]))  # , [2, 4, 6])
