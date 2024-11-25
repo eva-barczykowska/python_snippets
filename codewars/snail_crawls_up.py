@@ -74,6 +74,20 @@ def snail(column, day, night):
 
     return days_needed
 
+# def snail(c, d, n):
+#     days = 0
+#     cp = 0
+#
+#     while cp <= c:
+#         cp += d
+#         days += 1
+#         if cp >= c:
+#             return days
+#         else:
+#             cp -= n
+#
+#     return days
+
 
 print(snail(3, 2, 1))  #, 2)
 print(snail(10, 3, 1), 5)
