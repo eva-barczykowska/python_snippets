@@ -10,6 +10,16 @@ def number(bus_stops):
 
     return passengers
 
+# def number(bus_stops):
+#     passengers = bus_stops[0][0]
+#     for i in bus_stops[1:]:  # starting from the second stop, first stop is already accounted for
+#         passengers += i[0]
+#         passengers -= i[1]
+#
+#         print(passengers)
+#
+#     return passengers
+
 
 print(number([[10, 0], [3, 5], [5, 8]]) == 5)
 print(number([[10, 0], [3, 5], [5, 8]]) == 5)
