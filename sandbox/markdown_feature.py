@@ -51,13 +51,21 @@
 
 #
 import markdown2
+
 markdown_content = '[To read](https://example.com)'
 html_content = markdown2.markdown(markdown_content)
 print(html_content)
 
+markdown_table = """
+| Header 1 | Header 2 |
+| --- | --- |
+| Row 1, Col 1 | Row 1, Col 2 |
+| Row 2, Col 1 | Row 2, Col 2 |
+"""
+html_content = markdown2.markdown(markdown_table, extras=["tables"])
+
+print(html_content)
 
 # import markdown  # another possible library
 # html = markdown.markdown("[abc](http://example.com)")
 # print(html)
-
-
