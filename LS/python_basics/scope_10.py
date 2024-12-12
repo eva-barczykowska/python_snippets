@@ -2,7 +2,7 @@ b = [1, 2, 3]
 
 
 def my_function():
-    b[0] = 10  # it's possible to access and ALSO REASSIGN elements in a list inside a function
+    b[0] = 10
 
 
 my_function()
