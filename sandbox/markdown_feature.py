@@ -62,7 +62,7 @@ markdown_table = """
 | Row 1, Col 1 | Row 1, Col 2 |
 | Row 2, Col 1 | Row 2, Col 2 |
 """
-html_content = markdown2.markdown(markdown_table, extras=["tables"])
+html_content = markdown2.markdown(markdown_table, extras=["tables", "code-friendly", "fenced-code-blocks"])
 
 print(html_content)
 
