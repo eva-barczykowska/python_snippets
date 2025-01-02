@@ -109,6 +109,23 @@
 # kitty = Cat('Sophie')
 # kitty.greet()
 
+#--this was our solution but the LS solution is different
+# class Cat:
+#     def __init__(self, name):
+#         self._name = name
+#
+#     @property
+#     def name(self):
+#         return self._name # return the value of _name
+#
+#     def greet(self):
+#         print(f"Hello! My name is {self.name}!")
+#
+# kitty = Cat('MANCHURIAN')
+# kitty.greet()
+
+# so my assumption is that using the @property decorator automatically provides a getter method for us and is the best
+# practice
 
 # Setter
 # Using the code snippet provided below, add a setter method named name. Then, rename kitty to 'Luna' and invoke greet again.
