@@ -121,14 +121,14 @@ class Cat:
 
     @property
     def name(self):
-        return self._name
+        return self._name # we need to return the value to make it a property and can be accessed like a property
 
     @name.setter
     def name(self, new_name):
-        self._name = new_name
+        self._name = new_name # no need for return, the method mutates the internal state
 
-    def set_name(self, new_name):
-        self._name = new_name
+    # def set_name(self, new_name): # we don't need this method anymore, as we have a setter now (above)
+    #     self._name = new_name
 
     def greet(self):
         print(f"Hello! My name is {self.name}!")
@@ -136,10 +136,23 @@ class Cat:
 
 kitty = Cat('Sophie', 'Paz', 13)
 kitty.greet()
-kitty.set_name("Ewa")
+# kitty.set_name("Ewa") # this was when we had the method on lines 130-131, now we have a setter (lines 126-128)
+# because we have the @name.setter decorator, the set_name method is no longer needed
+# we can rename kitty to 'Luna' like this:
+print("------")
+print("changing name from Sophie to Luna...")
+kitty.name = 'Luna'
 kitty.greet()
 # Hello! My name is Sophie!
 # Hello! My name is Luna!
 
 # print(kitty.name)
 print(kitty.name)
+print("-------------")
+print("dir: lists ALL attributes of an object, including class attributes and methods")
+print(dir(kitty))
+print("-------------")
+print("returns a dictionary of all attributes that live DIRECTLY on the object (no methods or class attributes)")
+print("print(vars(kitty))")
+print()
+print(vars(kitty))
