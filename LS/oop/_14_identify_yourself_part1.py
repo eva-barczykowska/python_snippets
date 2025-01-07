@@ -14,9 +14,10 @@ class Cat:
     def identify(self):
         return self
 
+
 # Comments show expected output
 kitty = Cat('Sophie')
-print(kitty)             # returns <__main__.Cat object at 0x1047fce30>
+print(kitty)  # returns <__main__.Cat object at 0x1047fce30>
 print(kitty.identify())  # returns <__main__.Cat object at 0x1047fce30>
 # <__main__.Cat object at 0x10508c8d0>
 
