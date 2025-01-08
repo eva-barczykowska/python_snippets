@@ -19,7 +19,7 @@ print(titles)
 print("original list:")
 print(screencasts)
 
-titles_optimized = [screencast.title() for screencast in screencasts] # appending happens automatically
+titles_optimized = [screencast.title() for screencast in screencasts]  # appending happens automatically
 print("after list comprehension:")
 print(titles_optimized)
 print("original list:")
@@ -78,3 +78,24 @@ long_titles = [
 long_titles = [title[:20] + "..." for title in famous_titles if len(title) > 30]
 
 print(long_titles)
+
+# sorting
+uppercase_letters = []
+
+for name in screencasts:
+    for char in name:
+        if char.isupper():
+            uppercase_letters.append(char)
+
+print("uppercase letters:", uppercase_letters)
+
+print()
+
+# sorting with list comprehension
+uppercase_letters = [
+    char
+    for name in screencasts
+    for char in name
+    if char.isupper()
+]
+print("uppercase letters (with list comprehension):", uppercase_letters)
