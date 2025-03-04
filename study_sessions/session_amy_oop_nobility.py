@@ -166,15 +166,69 @@
 # We need a new class Noble that shows the title and name when walk is called. We also require access to name and title; they are needed for other purposes that we aren't showing here.
 
 
-class Walkable:
+# class Walkable:
+#     def walk(self):
+#         if isinstance(self, Noble):
+#             return f"{self.title} {self.name} {self.gait()} forward"
+#         else:
+#             return f"{self.name} {self.gait()} forward"
+#
+#
+# class Person(Walkable):
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#
+#     def gait(self):
+#         return "strolls"
+#
+#
+# class Cat(Walkable):
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def gait(self):
+#         return "saunters"
+#
+#
+# class Cheetah(Walkable):
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def gait(self):
+#         return "runs"
+#
+#
+# class Noble(Walkable):
+#     def __init__(self, name, title):
+#         self.name = name
+#         self.title = title
+#
+#     def gait(self):
+#         return "struts"
+#
+#     # def walk(self):
+#     #     return f"{self.title} " + super().walk()
+#
+#
+# # Modify the code so that it works
+# mike = Person("Mike", 77)
+# print(mike.walk())  # Expected: "Mike strolls forward"
+#
+# byron = Noble("Byron", "Lord")
+# print(byron.walk())  # "Lord Byron struts forward"
+# print(byron.name)  # "Byron"
+# print(byron.title)  # "Lord"
+
+# The easiest way to accomplish this is to provide a method that returns both the title and name for Noble instances
+# and just the name for non-Noble instances.
+# LS solution:
+
+class WalkMixin:
     def walk(self):
-        if isinstance(self, Noble):
-            return f"{self.title} {self.name} {self.gait()} forward"
-        else:
-            return f"{self.name} {self.gait()} forward"
+        return self.__str__() + " " + self.gait() + " forward"
 
-
-class Person(Walkable):
+class Person(WalkMixin):
     def __init__(self, name, age):
         self.name = name
         self.age = age
@@ -182,24 +236,32 @@ class Person(Walkable):
     def gait(self):
         return "strolls"
 
+    def __str__(self):
+        return f"{self.name}"
 
-class Cat(Walkable):
+class Cat(WalkMixin):
     def __init__(self, name):
         self.name = name
 
     def gait(self):
         return "saunters"
 
+    def __str__(self):
+        return f"{self.name}"
 
-class Cheetah(Walkable):
+
+class Cheetah(WalkMixin):
     def __init__(self, name):
         self.name = name
 
     def gait(self):
         return "runs"
 
+    def __str__(self):
+        return f"{self.name}"
 
-class Noble(Walkable):
+
+class Noble(WalkMixin):
     def __init__(self, name, title):
         self.name = name
         self.title = title
@@ -207,8 +269,10 @@ class Noble(Walkable):
     def gait(self):
         return "struts"
 
-    # def walk(self):
-    #     return f"{self.title} " + super().walk()
+    def __str__(self):
+        return f"{self.title} {self.name}"
+
+
 
 
 # Modify the code so that it works
@@ -220,5 +284,15 @@ print(byron.walk())  # "Lord Byron struts forward"
 print(byron.name)  # "Byron"
 print(byron.title)  # "Lord"
 
-# The easiest way to accomplish this is to provide a method that returns both the title and name for Noble instances
-# and just the name for non-Noble instances.
+# The approach is that we will provide a method that returns both the title and name for Noble instances of Noble class,
+# and just the name for non-Noble instances, like Person, Cheetah, Cat.
+# This way, the WalkMixin can be reused in any class that needs to walk.
+
+
+# Mixins are more appropriate than ordinary inheritance in a HAS-A relationship,
+# especially when you want to add behavior to a class without altering its structure.
+# We don't want to extend the Person, Cat, Cheetah classes, so we are using mixins. Extending means IS-A relationship,
+#, having the ability, like HAS-A ability to walk is a HAS-A relationship.
+
+# adding functinality - HAS-A, Mixins
+# adding ability - IS-A relationship, inheritance
