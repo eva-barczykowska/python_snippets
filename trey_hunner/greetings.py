@@ -15,3 +15,6 @@ if __name__ == "__main__":
 # now after I've included the code on lines 12-13, I will not see "Hello world!" when I import this module
 # in importing_greetings.py file.
 # but I need to run this importing_greetings.py file separately from the terminal to see the difference
+
+
+# `main()` function serves as the entry point for the program.
