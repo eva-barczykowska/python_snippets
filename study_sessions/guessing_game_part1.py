@@ -12,9 +12,15 @@ class GuessingGame:
         while True:
             if self.guesses == 0:
                 print("You have no more guesses. You lost!")
-                break
+                continue
             print(f"You have {self.guesses} guesses remaining.")
-            user_answer = (int(input("Enter a number between 1 and 100:")))
+            user_answer = input("Enter a number between 1 and 100:")
+
+            try:
+                user_answer = int(user_answer)
+            except ValueError:
+                print("It must be a number. Enter a number between 1 and 100: ")
+                continue # skip the rest of the current iteration
 
             if user_answer not in range(1, 101):
                 user_answer = int(input("Invalid guess. Enter a number between 1 and 100: "))
