@@ -11,5 +11,5 @@ DS_Store
 
 # Ignore __pycache__ directories
 __pycache__/
-sandbox/old_yml.yml
-sandbox/new_yaml.yml
+sandbox/old.yml
+sandbox/new.yml
