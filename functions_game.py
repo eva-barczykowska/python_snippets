@@ -87,7 +87,7 @@ if mode == 'e':
     counter = 0
     result = 0
     while True:
-        if counter > 10:
+        if counter > 9:
             print(f"Thanks for playing, your result is {result} ouf of 10")
             break
         random_function_number = random.randint(0, len(python_functions) - 1)
@@ -106,7 +106,7 @@ elif mode == 'h':
     counter = 0
     result = 0
     while True:
-        if counter > 10:
+        if counter > 9:
             print(f"Thanks for playing, your result is {result} ouf of 10")
             break
         random_function_number = random.randint(0, len(python_functions) - 1)
@@ -131,5 +131,4 @@ elif mode == 'h':
 # make an Alexa skill that uses this game
 
 # TODO version 6
-# fix the bug, currently result is 10 our of 10 even though it should be 9 out of 10
 # decide if provide additionally % or not
