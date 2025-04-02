@@ -82,28 +82,40 @@ while True:
     else:
         break
 
-random_function_number = random.randint(0, len(python_functions) - 1)
-target = list(python_functions.keys())[random_function_number]
+
+# random_function_number = random.randint(0, len(python_functions) - 1)
+# target = list(python_functions.keys())[random_function_number]
 
 
 if mode == 'e':
-    guess = input(f"{python_functions[target].upper()}. Starts with: {target[0]} -> ").lower()
+    counter = 0
+    result = 0
+    while True:
+        if counter > 10:
+            print(f"Thanks for playing, your result is {result} ouf of 10")
+            break
+        random_function_number = random.randint(0, len(python_functions) - 1)
+        target = list(python_functions.keys())[random_function_number]
+        guess = input(f"{python_functions[target].upper()}. Starts with: {target[0]} -> ").lower()
 
-    if guess == target:
-        print("Congratulations! You guessed correctly. You get a point.")
-    else:
-        print(f"Sorry, the correct answer is {target}.")
+
+        if guess == target:
+            print("Congratulations! You guessed correctly. You get a point.\n")
+            result += 1
+        else:
+            print(f"Not quite, the correct answer is {target}.\n")
+        counter += 1
 
 
 
 
-elif mode == 'h':
-    guess = input(f"{python_functions[target].upper()}. -> ")
-
-    if guess == target:
-        print("Congratulations! You guessed correctly. You get a point")
-    else:
-        print(f"Sorry, the correct answer is {target}.")
+# elif mode == 'h':
+#      guess = input(f"{python_functions[target].upper()}. -> ")
+#
+#     if guess == target:
+#           print("Congratulations! You guessed correctly. You get a point")
+#     else:
+#          print(f"Sorry, the correct answer is {target}.")
 
 # TODO version 2
 # Add scoring system and display score after each game
@@ -118,3 +130,6 @@ elif mode == 'h':
 
 # TODO version 4
 # next time they play, ask them all the methods that they've previously got wrong
+
+# TODO version 5
+# make an Alexa skill that uses this game
