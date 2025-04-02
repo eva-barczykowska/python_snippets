@@ -83,10 +83,6 @@ while True:
         break
 
 
-# random_function_number = random.randint(0, len(python_functions) - 1)
-# target = list(python_functions.keys())[random_function_number]
-
-
 if mode == 'e':
     counter = 0
     result = 0
@@ -96,7 +92,7 @@ if mode == 'e':
             break
         random_function_number = random.randint(0, len(python_functions) - 1)
         target = list(python_functions.keys())[random_function_number]
-        guess = input(f"{python_functions[target].upper()}. Starts with: {target[0]} -> ").lower()
+        guess = input(f"{python_functions[target].upper()}. Starts with: {target[0]} -> ")
 
 
         if guess == target:
@@ -106,24 +102,24 @@ if mode == 'e':
             print(f"Not quite, the correct answer is {target}.\n")
         counter += 1
 
+elif mode == 'h':
+    counter = 0
+    result = 0
+    while True:
+        if counter > 10:
+            print(f"Thanks for playing, your result is {result} ouf of 10")
+            break
+        random_function_number = random.randint(0, len(python_functions) - 1)
+        target = list(python_functions.keys())[random_function_number]
+        guess = input(f"{python_functions[target].upper()}. -> ")
 
+        if guess == target:
+            print("Congratulations! You guessed correctly. You get a point.\n")
+            result += 1
+        else:
+            print(f"Not quite, the correct answer is {target}.\n")
+        counter += 1
 
-
-# elif mode == 'h':
-#      guess = input(f"{python_functions[target].upper()}. -> ")
-#
-#     if guess == target:
-#           print("Congratulations! You guessed correctly. You get a point")
-#     else:
-#          print(f"Sorry, the correct answer is {target}.")
-
-# TODO version 2
-# Add scoring system and display score after each game
-# each time they guess correctly, they get a point
-# define no of guesses and subtract -1 after each guess, correct or incorrect
-# check if they've used all their guesses, if so, break out of the loop
-# so the base for breaking out of the loop is when they've used all their guesses'
-# at the end, display their score, also in %
 
 # TODO version 3
 # store all of their incorrect guesses and show them at the end of the game
@@ -133,3 +129,7 @@ if mode == 'e':
 
 # TODO version 5
 # make an Alexa skill that uses this game
+
+# TODO version 6
+# fix the bug, currently result is 10 our of 10 even though it should be 9 out of 10
+# decide if provide additionally % or not
