@@ -47,7 +47,7 @@
 # exponent(number1, number2)
 
 print("----")
-
+# problem is with lower versions of python, like 3.9
 #LS solution
 def calculate(first, second, operator):
     match operator:
