@@ -161,16 +161,16 @@
 # a, b = b, a + b #5, 10  10, 15. |10, 15
 # print(a, b)
 
-def tricky_calculation(n):
-    result = 0
-    for i in range(n): #0, 1, 2, 3
-        result += i #0 + 1 + 3  |1, 3, 9
-        if i % 2 == 0:
-            continue
-        result *= 2 #0 + 2 + 6 | 2, 6, 18
-    return result
-
-print(tricky_calculation(5))
+# def tricky_calculation(n):
+#     result = 0
+#     for i in range(n): #0, 1, 2, 3
+#         result += i #0 + 1 + 3  |1, 3, 9
+#         if i % 2 == 0:
+#             continue
+#         result *= 2 #0 + 2 + 6 | 2, 6, 18
+#     return result
+#
+# print(tricky_calculation(5))
 
 #same snippets with AMY
 # items = [1, 2, 3, 4, 5]
@@ -468,3 +468,431 @@ print(tricky_calculation(5))
 # print(add_item(2)) # [1,2]   | [1,2]
 
 
+# x = 10
+# def my_function(num):
+#     print(num)
+# my_function(x)
+
+#------
+
+# def change_value(num):
+#     num = num + 5
+#     return num
+
+# value = 10
+# value = change_value(value)
+# print(value)
+
+#------
+
+# a = [1, 2, 3]
+# b = a
+# b.append(4)
+# print(a) #[1,2,3,4]
+
+#------
+
+# def outer_function():
+#     x = "local"
+
+#     def inner_function():
+#         print(x)
+
+#     inner_function() #output "local"
+
+# outer_function()
+
+#------
+# def modify_string(text, value):
+#     text += value
+#     return text
+
+# greeting = "Hello"
+# greeting = modify_string(greeting, ", World!")
+# print(greeting)
+
+#------
+
+# numbers = [1, 2, 3]
+
+# def process_list(lst):
+#     lst = lst.copy()
+#     lst.append(4)
+#     return lst
+
+# result = process_list(numbers)
+# print(numbers) #[1,2,3]
+# print(result) #[1,2,3,4]
+
+# if you see a nested list and copy(), you know you're screwed
+
+#------
+
+# def update_counters():
+#     global counter1
+#     counter1 = 10
+#     counter2 = 20
+
+# counter1 = 1
+# counter2 = 2
+# update_counters()
+# print(counter1, counter2) #10, #2
+
+#------
+
+# def strange_function():
+#         if False: #what is considered here? Params?
+#             weird_var = 100
+
+#         try:
+#             print(weird_var)
+#         except NameError:
+#             print("Variable doesn't exist")
+
+# strange_function()
+
+# in Python, cond will execute ONLY if it evaluates to TRUE
+
+#------
+
+# lst = [1, 2, 3] #->[2, 3] -> [2,3] ->IndexError
+# print(list(range(len(lst))))
+
+# def empty_list(lst):
+#     for idx in range(len(lst)): #0, 1, 2 range(0,3)
+#         lst.pop(idx) # #0, 1, 2
+#         print(lst) #[2, 3]->[2]->Index error
+#     return lst
+
+# print(empty_list(lst)) #[1, 2, 3]
+# print(lst) # [1, 2, 3]
+
+#The issue with the code is that modifying a list while iterating over it using its indices can lead to unexpected behavior. When you remove an element from the list using pop(idx), the indices of the subsequent elements are shifted, which can cause elements to be skipped or lead to an IndexError.
+
+# POP removes the index!!! you pass it in!
+# remove removes the argument-value you pass it in!
+
+
+#fix
+# def empty_list(lst):
+#     for _ in range(len(lst)): #0, 1, 2
+#         lst.pop()
+#         print(lst)
+#     return lst
+
+# print(empty_list(lst))
+# print(lst)
+
+#------
+
+# lst1 = [0, 1, 2, 3]
+# lst2 = lst1.reverse() and lst1.reverse() # mut methods often return None
+# if lst2:
+#     print(lst2)
+# else:
+#     print(lst1) #MUTATED list!
+
+#-----------------------------------------------------------------------------------------------------------------------
+#snippets prepared for your exam!
+
+
+
+#Pls always say what concept?
+# y = "global"
+
+# def test():
+#     y = "local"
+#     print(y)
+
+# test()
+# print(y)
+
+
+# ---
+
+#2.
+
+# x = [1, 2]
+# y = [1, 2]
+# print(x == y)
+# print(x is y)
+
+# x = "banana"
+# y = "banana"
+# print(x == y)
+# print(x is y)
+# ---
+
+# ## 3
+
+# def outer():
+#     z = 5
+#     def inner():
+#         nonlocal z
+#         z += 1
+#     inner()
+#     return z
+
+# print(outer())
+
+
+# ---
+
+# ## 4.
+
+# info = {"name": "Sam"}
+# info["age"] = 30
+# info["name"] = info.get("name", "") + " Smith"
+# print(info)
+
+
+# ---
+
+# ## 5.
+# nums = [2, 3, 4, 5]
+# squares = [n**2 for n in nums if n % 2 == 0]
+# print(squares)
+
+# ---
+
+# ## 6.
+
+# def recursive_sum(lst):
+#     if not lst:
+#         return 0
+#     return lst[0] + recursive_sum(lst[1:])
+
+# print(recursive_sum([1, 2, 3]))
+
+# ---
+
+# ## 7.
+# lst1 = [1, 2]
+# lst2 = lst1
+# lst3 = lst1.copy()
+# lst1.append(3)
+# print(lst2)
+# print(lst3)
+
+
+# ---
+
+# ## 8.
+
+# a = [[1, 2], 3]
+# b = a.copy()
+# a[0][1] = 99
+# print(b)
+
+
+# ---
+
+# ## 9.
+# def fact(n):
+#     if n <= 1:
+#         return 1
+#     return n * fact(n - 1)
+
+# print(fact(5))
+
+
+# ---
+# ## 10. Removing Items While Iterating
+
+# items = [1, 2, 3, 4]
+# for item in items[:]:
+#     if item % 2 == 0:
+#         items.remove(item)
+# print(items)
+
+
+
+# ## 11.
+
+# names = ["Anna", "Bob"]
+# enum_names = list(enumerate(names))
+# print(enum_names)
+
+
+# ## 12.
+
+# try:
+#     print("A")
+#     1 / 0
+#     print("B")
+# except ZeroDivisionError:
+#     print("C")
+# finally:
+#     print("D")
+
+
+# ---
+
+# def subtract(a, b):
+#     return a - b
+
+# def operate(func, x, y):
+#     return func(x, y)
+
+# print(operate(subtract, 10, 3))
+
+
+
+
+# ## 14.
+
+# def try_modify(t):
+#     try:
+#         t[1] = 5
+#     except TypeError:
+#         print("This happening but why?")
+
+# t = (1, 2, 3)
+# try_modify(t)
+
+
+# ---
+
+# ## 15.
+
+# def add_to_list(val, lst=[]):
+#     lst = [101]
+#     lst.append(val)
+#     return lst
+
+# print(add_to_list("x"))
+# print(add_to_list("y"))
+
+
+# ---
+
+# def add_to_list(val, lst=[]):
+#     lst = [101]
+#     lst.append(val)
+#     return lst
+
+# print(add_to_list("x"))
+# print(add_to_list("y"))
+
+
+# ## 16. Global Keyword
+
+# count = 0
+
+# def increase():
+#     global count
+#     count += 1
+
+# increase()
+# print(count)
+
+
+
+## 17.
+
+# def change_first(lst):
+#     lst[0][0] = "changed"
+
+# matrix = [[0, 1], [2, 3]]
+# change_first(matrix)
+# print(matrix)
+
+
+# ---
+
+## 18.
+# def shout(s):
+#     s = s.upper()
+#     return s
+
+# msg = "hello"
+# print(shout(msg))
+# print(msg)
+
+
+# ---
+
+# ## 19.
+
+# def calc(n):
+#     res = 1
+#     for i in range(1, n+1): # 1, 2, 3, 4, 5
+#         if i % 2 == 0:
+#             continue
+#         res *= i # 1*3=3, 3*5=15
+#     return res
+
+# print(calc(5))
+
+
+# ---
+
+# ## 20.
+
+# def maybe_mutate(lst):
+#     lst += [99]
+#     # print(f"List is now {lst}")
+#     return lst
+
+# a = [1, 2]
+# maybe_mutate(a)
+# print(a)
+
+# ---
+
+# ### Bonus: Reassignment in Function Does Not Affect Original
+
+# def reassign_list(lst):
+#     lst = [0]
+#     return lst
+
+# orig = [1, 2]
+# reassign_list(orig)
+# print(orig)
+
+# my_list = [55, 66, 77]
+# print(my_list.remove(66))
+
+# my_list = [55, 66, 77]
+# my_list.pop(66)
+# print(my_list)
+
+# my_list = [55, 66, 77]
+# print(my_list.pop(1))
+
+# info = {"name": "Sam"}
+# info["age"] = 30
+# retrieved = info.get("name", "") + " Smith"
+# print(retrieved)
+
+# my_values = ("connection", "attunment")
+# new_values = []
+# for value in my_values:
+#     new_values.append(value + " $$$")
+
+# print(my_values)
+# print(new_values)
+
+# my_assets = ("inner and outer beauty", "inredible talent")
+# my_assets[1] = "bottomless riches"
+
+# my_assets = ("inner and outer beauty", "inredible talent")
+# my_reviewed_assets= my_assets[:] + (" bottomless riches",)
+
+# print(my_reviewed_assets)
+
+# my_assets = ("inner and outer beauty", "inredible talent")
+# my_reviewed_assets= my_assets[:] + (" bottomless riches")
+
+# print(my_reviewed_assets)
+
+# my_assets = ("inner and outer beauty", "inredible talent")
+# my_reviewed_assets= my_assets[:] + (" bottomless riches", "huuuge inheritance")
+
+# print(my_reviewed_assets)
+
+
+# my_assets = ("inner and outer beauty", "inredible talent")
+# my_reviewed_assets= my_assets[:] + " bottomless riches"
+
+# print(my_reviewed_assets)
