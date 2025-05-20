@@ -1212,7 +1212,7 @@
 # retrieved = info.get("name", "") + " Smith"
 # print(retrieved)
 
-# my_values = ("connection", "attunment")
+# my_values = ("connection", "attunement")
 # new_values = []
 # for value in my_values:
 #     new_values.append(value + " $$$")
@@ -1220,26 +1220,26 @@
 # print(my_values)
 # print(new_values)
 
-# my_assets = ("inner and outer beauty", "inredible talent")
+# my_assets = ("inner and outer beauty", "incredible talent")
 # my_assets[1] = "bottomless riches"
 
-# my_assets = ("inner and outer beauty", "inredible talent")
+# my_assets = ("inner and outer beauty", "incredible talent")
 # my_reviewed_assets= my_assets[:] + (" bottomless riches",)
 
 # print(my_reviewed_assets)
 
-# my_assets = ("inner and outer beauty", "inredible talent")
+# my_assets = ("inner and outer beauty", "incredible talent")
 # my_reviewed_assets= my_assets[:] + (" bottomless riches")
 
 # print(my_reviewed_assets)
 
-# my_assets = ("inner and outer beauty", "inredible talent")
+# my_assets = ("inner and outer beauty", "incredible talent")
 # my_reviewed_assets= my_assets[:] + (" bottomless riches", "huuuge inheritance")
 
 # print(my_reviewed_assets)
 
 
-# my_assets = ("inner and outer beauty", "inredible talent")
+# my_assets = ("inner and outer beauty", "incredible talent")
 # my_reviewed_assets= my_assets[:] + " bottomless riches"
 
 # print(my_reviewed_assets)
