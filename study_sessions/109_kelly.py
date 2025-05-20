@@ -896,3 +896,350 @@
 # my_reviewed_assets= my_assets[:] + " bottomless riches"
 
 # print(my_reviewed_assets)
+
+# *******
+# completed, some extra snippets where we explored concepts
+#snippets prepared for your exam!
+
+
+# #Pls always say what concept?
+
+# y = "global"
+
+# def test():
+#     y = "local"
+#     print(y)
+
+# test() #local
+# print(y) #global
+
+
+# ---
+
+# #2.
+
+# x = [1, 2]
+# y = [1, 2]
+# print(x == y) #True
+# print(x is y) #False
+
+# x = "banana"
+# y = "banana"
+# print(x == y) #True
+# print(x is y) #False, but might true due to memory interning
+
+# x = "I saw this on the internet"
+# y = "I saw this on the internet"
+# print(x is y)
+
+# ## 3
+
+# def outer():
+#     z = 5
+#     def inner():
+#         nonlocal z
+#         z += 1 #6
+#     inner()
+#     return z
+
+# print(outer()) #6
+
+
+# ---
+
+# # 4.
+
+# info = {"name": "Sam"}
+# info["age"] = 30 #{"name": "Sam", "age": 30}
+# info["name"] = info.get("name", "") + " Smith"
+# print(info)
+
+
+# ---
+
+# # ## 5.
+# nums = [2, 3, 4, 5]
+# squares = [n**2 for n in nums if n % 2 == 0]
+# print(squares) #[4, 8]
+
+# # ---
+
+# ## 6.
+
+# def recursive_sum(lst):
+#     if not lst:
+#         return 0
+#     return lst[0] + recursive_sum(lst[1:])
+
+# print(recursive_sum([1, 2, 3])) #[2, 3]
+
+# 1. [1, 2, 3] -> 1 + ....->[2, 3]
+# 2. [2, 3]    -> 2 + .....->[3]
+# 3.  [3].     -> 3 +......->[]
+
+# 1+2+3=6
+# ---
+
+# ## 7.
+
+# lst1 = [1, 2]
+# lst2 = lst1
+# lst3 = lst1.copy()
+# lst1.append(3) #[1,2,3]
+# print(lst2) #[1,2,3]
+# print(lst3) #[1,2]
+
+
+# ---
+
+# ## 8.
+
+# a = [[1, 2], 3]
+# b = a.copy() #[[1, 2], 3]
+# a[0][1] = 99 #[[1,99], 3]
+# print(b)
+
+
+# ---
+
+## 9.
+# def fact(n):
+#     if n <= 1:
+#         return 1
+#     return n * fact(n - 1) #5 * 5-1, 4-1, 3-1, 2-1, 1-1
+#                             # 5 * 4 * 3 * 2 * 1 * 1
+#                             # 20  * 3 = 60
+#                             # 60 * 2 = 120
+
+# print(fact(5))
+
+
+# ---
+# ## 10. Removing Items While Iterating
+
+# items = [1, 2, 3, 4]
+# for item in items[:]:
+#     if item % 2 == 0:
+#         items.remove(item)
+# print(items) #[1,3]
+
+
+
+# ## 11.
+
+# names = ["Anna", "Bob"]
+# enum_names = list(enumerate(names))
+# print(enum_names) #["Anna", 0], ["Bob", 1]]
+
+
+# ## 12.
+
+# x =1
+# y = 0
+# try:
+#     print("A")
+#     x / y
+#     print("B")
+# except ZeroDivisionError:
+#     print("C")
+# finally:
+#     print("D")
+
+#A
+# C
+# D
+
+
+# ---
+
+# def subtract(a, b):
+#     return a - b
+
+# def operate(func, x, y):
+#     return func(x, y)
+
+# print(operate(subtract, 10, 3)) #7
+
+
+
+
+# ## 14.
+
+# def try_modify(t):
+#     try:
+#         t[1] = 5
+#     except TypeError:
+#         print("This happening but why?")
+
+# t = (1, 2, 3)
+# try_modify(t)
+
+
+# ---
+
+# ## 15.
+
+# def add_to_list(val, lst=[]):
+#     # lst = []
+#     lst.append(val)
+#     return lst
+
+# print(add_to_list("x")) #["x"]
+# print(add_to_list("y")) # ["x", "y"]
+
+# def add_to_list(val, lst=[101]):
+#     lst.append(val)
+#     return lst
+
+# print(add_to_list("x")) #[101, "x"]
+# print(add_to_list("y")) # [101, "x", "y"]
+
+# def add_to_list(val, lst=[101]):
+#     lst = [55]
+#     lst.append(val)
+#     return lst
+
+# print(add_to_list("x")) #[55, "x"]
+# print(add_to_list("y")) # [55, "y"]
+
+# def add_to_list(val):
+#     lst = [] # we always always start with an []
+#     lst.append(val)
+#     return lst
+
+# print(add_to_list("x")) #["x"]
+# print(add_to_list("y")) # ["y"]
+
+
+# ---
+
+# def add_to_list(val, lst=[]):
+#     lst = [101]
+#     lst.append(val)
+#     return lst
+
+# print(add_to_list("x")) #[101, x]
+# print(add_to_list("y")) #[101, y]
+
+
+# ## 16. Global Keyword
+
+# count = 0
+
+# def increase():
+#     global count
+#     count += 1 # count = 1
+
+# increase()
+# print(count) #1
+
+
+
+## 17.
+
+# def change_first(lst):
+#     lst[0][0] = "changed"
+
+# matrix = [[0, 1], [2, 3]]
+# change_first(matrix)
+# print(matrix) #[["changed", 1], [2,3]
+
+
+# ---
+
+## 18.
+# def shout(s):
+#     s = s.upper()
+#     return s
+
+# msg = "hello"
+# print(shout(msg))
+# print(msg)
+
+
+# ---
+
+# ## 19.
+
+# def calc(n):
+#     res = 1
+#     for i in range(1, n+1): # 1, 2, 3, 4, 5
+#         if i % 2 == 0:
+#             continue
+#         res *= i # 1*3=3, 3*5=15
+#     return res
+
+# print(calc(5))
+
+
+# ---
+
+# ## 20.
+
+# def maybe_mutate(lst):
+#     lst += [99]
+#     # print(f"List is now {lst}")
+#     return lst
+
+# a = [1, 2]
+# maybe_mutate(a)
+# print(a)
+
+# ---
+
+# ### Bonus: Reassignment in Function Does Not Affect Original
+
+# def reassign_list(lst):
+#     lst = [0]
+#     return lst
+
+# orig = [1, 2]
+# reassign_list(orig)
+# print(orig)
+
+# my_list = [55, 66, 77]
+# print(my_list.remove(66))
+
+# my_list = [55, 66, 77]
+# my_list.pop(66)
+# print(my_list)
+
+# my_list = [55, 66, 77]
+# print(my_list.pop(1))
+
+# info = {"name": "Sam"}
+# info["age"] = 30
+# retrieved = info.get("name", "") + " Smith"
+# print(retrieved)
+
+# my_values = ("connection", "attunment")
+# new_values = []
+# for value in my_values:
+#     new_values.append(value + " $$$")
+
+# print(my_values)
+# print(new_values)
+
+# my_assets = ("inner and outer beauty", "inredible talent")
+# my_assets[1] = "bottomless riches"
+
+# my_assets = ("inner and outer beauty", "inredible talent")
+# my_reviewed_assets= my_assets[:] + (" bottomless riches",)
+
+# print(my_reviewed_assets)
+
+# my_assets = ("inner and outer beauty", "inredible talent")
+# my_reviewed_assets= my_assets[:] + (" bottomless riches")
+
+# print(my_reviewed_assets)
+
+# my_assets = ("inner and outer beauty", "inredible talent")
+# my_reviewed_assets= my_assets[:] + (" bottomless riches", "huuuge inheritance")
+
+# print(my_reviewed_assets)
+
+
+# my_assets = ("inner and outer beauty", "inredible talent")
+# my_reviewed_assets= my_assets[:] + " bottomless riches"
+
+# print(my_reviewed_assets)
