@@ -1243,3 +1243,6 @@
 # my_reviewed_assets= my_assets[:] + " bottomless riches"
 
 # print(my_reviewed_assets)
+
+# once again study these snippets, += is AUGMENTED ASSIGNMENT when we talk about mutable objects like lists
+# += is reassignment when we talk about immutable objects like strings, tuples, and numbers
