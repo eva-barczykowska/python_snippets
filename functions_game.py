@@ -125,10 +125,13 @@ elif mode == 'h':
 # store all of their incorrect guesses and show them at the end of the game
 
 # TODO version 4
-# next time they play, ask them all the methods that they've previously got wrong
+# next time they play, ask them all the functions that they've previously got wrong
 
 # TODO version 5
 # make an Alexa skill that uses this game
 
 # TODO version 6
 # decide if provide additionally % or not
+
+# TODO version 7
+# implement CI/CD pipeline as per the Oreilly publication I read/Gitlab courses/best practises
