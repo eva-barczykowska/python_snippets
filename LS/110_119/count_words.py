@@ -151,3 +151,69 @@ print(word_sizes(string) == {5: 1, 2: 1, 3: 1})
 
 print(word_sizes('') == {})
 
+print()
+# another way when passing a function to a function
+"""
+A:
+-initialize dictionary
+-initialize count to 0
+-map words to a list of numbers, exclude non-alphabet chars
+-create a hash out of that list
+--return that hash
+"""
+
+from collections import Counter
+def word_sizes(string):
+    result = {}
+    temp = []
+    filtered_words = list((word for word in string.split() if word.isalpha())) # get rid of non-alphabet chars
+    # mapped_to_nums = map(filtered_words, len)
+    # for w in filtered_words:
+    #     temp.append(len(w))
+    counts = Counter(filtered_words)
+    # print(counts) # Counter({'Four': 1, 'score': 1, 'and': 1})
+    for k, v in counts.items():
+        if len(k) in result:
+            result[len(k)] += 1
+        else:
+            result[len(k)] = 1
+
+    return result
+
+
+
+string = 'Four score and seven.'
+print(word_sizes(string))# == {4: 1, 5: 2, 3: 1})
+
+# string = 'Hey diddle diddle, the cat and the fiddle!'
+# print(word_sizes(string) == {3: 5, 6: 3})
+#
+# string = 'Humpty Dumpty sat on a w@ll'
+# print(word_sizes(string) == {6: 2, 3: 2, 2: 1, 1: 1})
+#
+# string = "What's up doc?"
+# print(word_sizes(string) == {5: 1, 2: 1, 3: 1})
+#
+# print(word_sizes('') == {})
+
+# example of how to use collections.Counter / similar to tally in Ruby
+# First, import the Counter class
+
+# print("counter------------------")
+# from collections import Counter
+#
+# fruits = ["apple", "banana", "apple", "orange", "banana", "apple"]
+#
+# # Create a Counter instance from the list
+# counts = Counter(fruits)
+#
+# # It looks and acts like a dictionary
+# print(counts) # => Counter({'apple': 3, 'banana': 2, 'orange': 1})
+# print(type(counts))
+#
+# print(counts["apple"])
+# # => 3
+
+
+
+
