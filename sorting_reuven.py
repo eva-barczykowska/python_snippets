@@ -52,3 +52,37 @@ for key, value in sorted(my_dict.items()): # sorted is getting tuples of key-val
     print(key, value)
 
 # for key, value in sorted(my_dict.items(), key=lambda item: item[1]):
+
+# sort() sorts in place but works only on lists! It returns None.
+# sorted() returns a new sorted list and it can be used with any iterable.
+# my_str = "Hello World"
+# my_str.sort()
+
+# sorted can be passed a function
+tools = ["pytest", "Ruff", "tox", "Mypy"]
+sorted_tools = sorted(tools, key=str.casefold)
+print(sorted_tools)
+
+#look at line 63 and the use of str.casefold()
+# This works because functions can be passed to other functions in Python.
+#
+# Also note that str.casefold is valid because methods are just functions attached to classes:
+# str.casefold(some_string)
+# is the same as some_string.casefold().
+
+#if you need only n smallest or n largest elements, you can use heapq.nsmallest() or heapq.nlargest()
+numbers = [7, 2, 5, 4, 7, 9, 3, 4]
+from heapq import nsmallest
+smallest_three_numbers = nsmallest(3, numbers)
+print(smallest_three_numbers) #[2, 3, 4]
+
+# if we want just 1 number we can use min(numbers) or max(numbers)
+
+# how to find things efficiently in lists?
+from bisect import bisect_left
+cities = ["Austin", "Spokane", "San Diego", "Chicago"]
+sorted_cities = sorted(cities)
+print(sorted_cities) #['Austin', 'Chicago', 'San Diego', 'Spokane']
+print(bisect_left(sorted_cities, "San Diego"))
+
+print(sorted_cities[2])#'San Diego'
