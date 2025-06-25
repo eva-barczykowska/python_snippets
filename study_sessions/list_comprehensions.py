@@ -61,3 +61,34 @@ lists = [['a', 'b', 'c'], ['d', 'e'], ['f', 'g', 'h', 'i']]
 
 firsties = [element[0] for element in lists ]
 print(firsties)
+
+# join this list of int into a str
+
+# numbers = [1, 2, 3, 4, 5]
+# join_str = [''.join(str(num)) for num in numbers] #['1', '2', '3', '4', '5']
+# print(join_str)
+
+# join_str = '*'.join([str(num) for num in numbers]) # so put the join operation inside the list comprehension
+# print(join_str)
+
+# join_str = ''.join(str(num) for num in numbers) # this is GENERATOR EXPRESSION
+# print(join_str)
+
+# hex_numbers = [0xe1c5eb, 0x4bdc58, 0xc0f95e, 0xed22da, 0xabefe8, 0x20eb83]
+# hex_sum = [sum(hex_numbers)]
+# print(hex_sum)
+
+#show the num of non-whitespace characters in the string
+# string = "Hello World!"
+# non_whitespace_count = sum([1 for char in string if char.isspace() == False])
+# print(non_whitespace_count)
+
+# now count whitespace characters
+# string = "Hello World!"
+# non_whitespace_count = sum([1 for char in string if char.isspace() == True])
+# print(non_whitespace_count)
+
+#or
+string = "Hello World!"
+non_whitespace_count = sum([1 for char in string if char == " "])
+print(non_whitespace_count)
