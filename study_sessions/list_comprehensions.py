@@ -92,3 +92,52 @@ print(firsties)
 string = "Hello World!"
 non_whitespace_count = sum([1 for char in string if char == " "])
 print(non_whitespace_count)
+
+#Practice Problem 6 Transform the following list of tuples into a list of dictionaries with keys 'name' and 'score',
+# but only include entries where the score is above 75.
+
+#Expected result: [{'name': 'Alice', 'score': 85}, {'name': 'Charlie', 'score': 91}, {'name': 'Eve', 'score': 88}]
+
+student_scores = [
+    ('Alice', 85),
+    ('Bob', 72),
+    ('Charlie', 91),
+    ('Diana', 68),
+    ('Eve', 88)
+]
+
+# we have a list of tuples
+# we want a list of dictionaries
+
+# todict?
+
+# immutable but we can iterate
+
+
+my_dict = {}
+
+l = []
+
+for first, second, in student_scores:
+    # temp = {}
+    # temp[first] = second
+    l.append({first: second})
+
+
+# print(l)
+
+list_comp = [{first: second} for first, second in student_scores ]
+print(list_comp)
+
+
+#Practice Problem 7
+# Given the following dictionary, create a new dictionary where each key maps to a list of words from the original value that have more than 4 characters.
+
+# Expected result: {'morning': ['quick', 'brown', 'jumps'], 'afternoon': ['sleeping'], 'evening': ['under', 'bright', 'starry']}
+
+sentences = {
+    'morning': 'the quick brown fox jumps',
+    'afternoon': 'over the lazy dog sleeping',
+    'evening': 'under the bright starry sky'
+}
+
