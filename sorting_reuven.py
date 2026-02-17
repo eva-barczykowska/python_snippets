@@ -86,3 +86,68 @@ print(sorted_cities) #['Austin', 'Chicago', 'San Diego', 'Spokane']
 print(bisect_left(sorted_cities, "San Diego"))
 
 print(sorted_cities[2])#'San Diego'
+
+nums = [44, 5, -8, 23, 10, 20, -15, 3, -1]
+nums.sort(key=abs)
+print(nums)  # [-15, -8, -1, 3, 5, 10, 20, 23, 44]
+
+mylist = ['hello', 'world', '!', 'how', 'are', 'Apple', 'Zoo']
+mylist.sort(key=str.lower)
+print(mylist) # ['!', 'Apple', 'are', 'hello', 'how', 'world', 'Zoo']
+
+def reverse_it(word):
+    print(word[::-1])
+    return word[::-1]
+
+mylist = ['hello', 'world', '!', 'how', 'are', 'Apple', 'Zoo']
+mylist.sort(key=reverse_it) #
+print(mylist)  #['!', 'world', 'Apple', 'are', 'hello', 'Zoo', 'how']
+
+print("using lambda function")
+# insted of writing a new function, we can use a lambda function
+
+mylist = ['vacuum', 'world', 'Jysk', 'how', 'are', 'Apple', 'Zoo']
+mylist.sort(key=lambda word: word[::-1])
+print(mylist)  # ['!', 'world', 'Apple', 'are', 'how', 'Zoo', 'Jisk']
+
+mylist = [(3,3,1), (3,2,1), (1,1,1), (1,3,2), (2,3,2), (1,2,3)]
+mylist.sort()
+print(mylist)  # [(1, 1, 1), (1, 2, 3), (1, 3, 2), (2, 1, 3), (2, 2, 3), (3, 3, 1)]
+
+# sorting by second element of each tuple first, then by the first element, and then by the third element
+mylist = [(3,3,1), (3,2,1), (1,1,1), (1,3,2), (2,3,2), (1,2,3)]
+          # (1,3,3)  (1,3,2)  (1,1,1)  (2,1,3) (2,2,3)  (3,1,2) # after by_2_then_0_then_1 method
+def by_2_then_0_then_1(t):
+    return t[2], t[0], t[1]
+mylist.sort(key=by_2_then_0_then_1)
+# For a tuple (a, b, c) → this function returns (c, a, b)
+# That means sorting will first look at index 2 (c), then index 0 (a), then index 1 (b).
+# sorting each tuple according to the given method
+# (3,3,1) → key = (1,3,3)
+# (3,2,1) → key = (1,3,2)
+# (1,1,1) → key = (1,1,1)
+# (1,3,2) → key = (2,1,3)
+# (2,3,2) → key = (2,2,3)
+# (1,2,3) → key = (3,1,2)
+
+# it is first doing the method work on the tuples, and then sorting them.
+# now when we have the sorted by the method tuples, we are sorting these by [c, a, b]
+# (1,1,1) → (1,1,1)
+# (3,2,1) → (1,3,2)
+# (3,3,1) → (1,3,3)
+# (1,3,2) → (2,1,3)
+# (2,3,2) → (2,2,3)
+# (1,2,3) → (3,1,2)
+
+# and now we are sorting/placing sorted tuples in order
+print(mylist)  # [(1, 1, 1), (1, 2, 3), (1, 3, 2), (2, 3, 2), (3, 2, 1), (3, 3, 1)]
+
+import operator
+mylist = [(3,3,1), (3,2,1), (1,1,1), (1,3,2), (2,3,2), (1,2,3)]
+print(sorted(mylist, key=operator.itemgetter(2)))
+# this will sort by the third element of each tuple
+[(3, 3, 1), (3, 2, 1), (1, 1, 1), (1, 3, 2), (2, 3, 2), (1, 2, 3)] # look ONLY on the third element of each tuple
+
+
+
+

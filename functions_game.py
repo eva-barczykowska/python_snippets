@@ -96,7 +96,7 @@ if mode == 'e':
 
 
         if guess == target:
-            print("Congratulations! You guessed correctly. You get a point.\n")
+            print("Correct! You get a point.\n")
             result += 1
         else:
             print(f"Not quite, the correct answer is {target}.\n")
@@ -114,7 +114,7 @@ elif mode == 'h':
         guess = input(f"{python_functions[target].upper()}. -> ")
 
         if guess == target:
-            print("Congratulations! You guessed correctly. You get a point.\n")
+            print("Correct! You get a point.\n")
             result += 1
         else:
             print(f"Not quite, the correct answer is {target}.\n")
@@ -135,3 +135,7 @@ elif mode == 'h':
 
 # TODO version 7
 # implement CI/CD pipeline as per the Oreilly publication I read/Gitlab courses/best practises
+
+# TODO version 8
+# to make learning more efficient, don't display functions that they got right at least in 2 last games
+# I will I need database for that he he?
