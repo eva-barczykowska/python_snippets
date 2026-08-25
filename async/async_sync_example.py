@@ -24,7 +24,6 @@ import requests
 import time
 
 urls = ['https://nytimes.com',
-        'https://washingtonpost.com',
         'https://python.org',
         'https://us.pycon.org']
 
