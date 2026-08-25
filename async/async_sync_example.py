@@ -1,17 +1,41 @@
-import asyncio
+# import asyncio
+#
+#
+# async def greet(word):
+#     for _ in range(5):
+#         await asyncio.sleep(0.001)
+#         print(word)
+#
+#
+# loop = asyncio.get_event_loop()
+#
+# loop.create_task(greet('hello'))
+# loop.create_task(greet('goodbye'))
+#
+# tasks = asyncio.all_tasks(loop=loop)
+# group = asyncio.gather(*tasks)
+# loop.run_until_complete(group)
 
 
-async def greet(word):
-    for _ in range(5):
-        await asyncio.sleep(0.001)
-        print(word)
+import warnings
+warnings.filterwarnings("ignore")
 
+import requests
+import time
 
-loop = asyncio.get_event_loop()
+urls = ['https://nytimes.com',
+        'https://washingtonpost.com',
+        'https://python.org',
+        'https://us.pycon.org']
 
-loop.create_task(greet('hello'))
-loop.create_task(greet('goodbye'))
+sizes = {}
 
-tasks = asyncio.all_tasks(loop=loop)
-group = asyncio.gather(*tasks)
-loop.run_until_complete(group)
+start_time = time.time()
+
+for one_url in urls:
+    print(one_url)
+    content = requests.get(one_url).content
+    sizes[one_url] = len(content)
+
+total_time = time.time() - start_time
+print(f'It took {total_time} seconds')
