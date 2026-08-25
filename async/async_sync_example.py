@@ -58,7 +58,7 @@ sizes = {}
 
 async def measure_url_content(one_url):
         print(one_url)
-        content = (await requests.get(one_url).content)
+        content = (await requests.get(one_url)).content
         sizes[one_url] = len(content)
 
 
