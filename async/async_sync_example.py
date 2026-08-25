@@ -12,6 +12,6 @@ loop = asyncio.get_event_loop()
 loop.create_task(greet('hello'))
 loop.create_task(greet('goodbye'))
 
-tasks = asyncio.Task.all_tasks(loop=loop)
+tasks = asyncio.all_tasks(loop=loop)
 group = asyncio.gather(*tasks)
 loop.run_until_complete(group)
