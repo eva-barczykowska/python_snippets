@@ -47,6 +47,7 @@ warnings.filterwarnings("ignore")
 import time
 import requests
 import asyncio
+import httpx
 
 
 urls = ['https://nytimes.com',
@@ -58,8 +59,10 @@ sizes = {}
 
 async def measure_url_content(one_url):
         print(one_url)
-        content = (await requests.get(one_url)).content
-        sizes[one_url] = len(content)
+        async with httpx.AsyncClient(follow_redirects=True) as client:
+            response = await client.get(one_url)
+            content = response.content
+            sizes[one_url] = len(content)
 
 
 loop = asyncio.get_event_loop()
@@ -73,7 +76,7 @@ group = asyncio.gather(*tasks)
 loop.run_until_complete(group)
 
 total_time = time.time() - start_time
-print(f'It took {total_time} seconds') #It took 2.7863478660583496 seconds so it is NOT FASTER AT ALL
+print(f'It took {total_time} seconds') # It took 0.7973361015319824 seconds
 
 
 
