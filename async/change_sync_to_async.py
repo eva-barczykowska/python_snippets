@@ -1,5 +1,7 @@
 import time
 import requests
+import warnings
+warnings.filterwarnings("ignore")
 
 
 def fetch_and_save_sync(user_id):
