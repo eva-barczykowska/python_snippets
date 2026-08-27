@@ -28,6 +28,6 @@ async def main_async():
     async with aiohttp.ClientSession() as session:
         tasks = [fetch_and_save_async(session, user_id) for user_id in range(1, 4)]
         await asyncio.gather(*tasks)
-    print(time.time() - start)  # Takes ~3 to 4 seconds total
+    print(time.time() - start) #Takes 0.2768559455871582
 
 asyncio.run(main_async())
