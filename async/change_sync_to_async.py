@@ -1,25 +1,33 @@
 import time
 import warnings
+
+import aiofiles
+
 warnings.filterwarnings("ignore")
-import requests
+import asyncio
+import aiohttp
 
 
-def fetch_and_save_sync(user_id):
+
+
+async def fetch_and_save_async(session, user_id):
     print(f"Fetching user {user_id}...")
-    # BLOCKS: Loop sits idle waiting for the internet
-    response = requests.get(f"https://jsonplaceholder.typicode.com/users/{user_id}")
-    data = response.text
+    # NON-BLOCKING: control returns to the event loop while waiting on the network
+    async with session.get(f"https://jsonplaceholder.typicode.com/users/{user_id}") as response:
+        data = await response.text()
+        print(data)
 
     print(f"Saving user {user_id}...")
-    # BLOCKS: Loop sits idle waiting for the hard drive
-    with open(f"user_{user_id}.json", "w") as f:
-        f.write(data)
+    # NON-BLOCKING: control returns to the event loop while waiting on disk I/O
+    async with aiofiles.open(f"user_{user_id}.json", "w") as f:
+        await f.write(data)
 
 
-def main_sync():
+async def main_async():
     start = time.time()
-    for user_id in range(1, 4):
-        fetch_and_save_sync(user_id)
+    async with aiohttp.ClientSession() as session:
+        tasks = [fetch_and_save_async(session, user_id) for user_id in range(1, 4)]
+        await asyncio.gather(*tasks)
     print(time.time() - start)  # Takes ~3 to 4 seconds total
 
-main_sync()
+asyncio.run(main_async())
