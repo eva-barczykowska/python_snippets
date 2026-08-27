@@ -1,13 +1,13 @@
 import time
-import requests
 import warnings
 warnings.filterwarnings("ignore")
+import requests
 
 
 def fetch_and_save_sync(user_id):
     print(f"Fetching user {user_id}...")
     # BLOCKS: Loop sits idle waiting for the internet
-    response = requests.get(f"https://typicode.com{user_id}")
+    response = requests.get(f"https://jsonplaceholder.typicode.com/users/{user_id}")
     data = response.text
 
     print(f"Saving user {user_id}...")
@@ -21,3 +21,5 @@ def main_sync():
     for user_id in range(1, 4):
         fetch_and_save_sync(user_id)
     print(time.time() - start)  # Takes ~3 to 4 seconds total
+
+main_sync()
